@@ -1243,7 +1243,7 @@ span.header-sort-icon img {
     margin-top: 2px;
     padding: 4px;
     border-radius: 3px;
-    color: #444444;
+    color: var(--window-sidebar-title-color);
     font-size: 13px;
     cursor: pointer;
     transition: 0.15s background-color;

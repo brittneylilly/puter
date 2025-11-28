@@ -121,6 +121,8 @@ export class ThemeService extends Service {
         this.root.style.setProperty('--primary-lightness', s.lig + '%');
         this.root.style.setProperty('--primary-alpha', s.alpha);
         this.root.style.setProperty('--primary-color', s.light_text ? 'white' : '#373e44');
+        // window sidebar title color
+        this.root.style.setProperty('--window-sidebar-title-color', s.lig <= 50.00 ? 'white' : 'black');
 
         // TODO: Should we debounce this to reduce traffic?
         this.#broadcastService.sendBroadcast('themeChanged', {
