@@ -1255,7 +1255,7 @@ span.header-sort-icon img {
 }
 
 .window-sidebar-item-active, .window-sidebar-item-drag-active, .window-sidebar-item-active:hover {
-    background-color: #fefeff;
+    background-color: #535153;
 }
 
 .window-sidebar-item-placeholder {
