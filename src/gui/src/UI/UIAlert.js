@@ -46,6 +46,18 @@ function UIAlert(options){
         if(options.type === 'success')
             options.body_icon = window.icons['c-check.svg'];
 
+        if(options.type === 'info')
+            options.body_icon = window.icons['info.svg'];
+
+        if(options.type === 'warning')
+            options.body_icon = window.icons['warning-sign.svg'];
+
+        if(options.type === 'error')
+            options.body_icon = window.icons['danger.svg'];
+
+        if(options.type === 'question')
+            options.body_icon = window.icons['question.svg'];
+
         let santized_message = html_encode(options.message);
 
         // replace sanitized <strong> with <strong>
