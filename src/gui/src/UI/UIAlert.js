@@ -41,22 +41,20 @@ function UIAlert(options){
             ]
         }
 
-        // set body icon
-        options.body_icon = options.body_icon ?? window.icons['warning-sign.svg'];
-        if(options.type === 'success')
-            options.body_icon = window.icons['c-check.svg'];
-
-        if(options.type === 'info')
-            options.body_icon = window.icons['info.svg'];
-
-        if(options.type === 'warning')
-            options.body_icon = window.icons['warning-sign.svg'];
-
-        if(options.type === 'error')
-            options.body_icon = window.icons['danger.svg'];
-
-        if(options.type === 'question')
-            options.body_icon = window.icons['question.svg'];
+        // set body icon based on type and custom icon, if not provided, use default icon
+        if (options.type === 'success') {
+            options.body_icon = options.body_icon ?? window.icons['c-check.svg'];
+        } else if (options.type === 'info') {
+            options.body_icon = options.body_icon ?? window.icons['info.svg'];
+        } else if (options.type === 'warning') {
+            options.body_icon = options.body_icon ?? window.icons['warning-sign.svg'];
+        } else if (options.type === 'error') {
+            options.body_icon = options.body_icon ?? window.icons['danger.svg'];
+        } else if (options.type === 'question') {
+            options.body_icon = options.body_icon ?? window.icons['question.svg'];
+        } else {
+            options.body_icon = options.body_icon ?? window.icons['warning-sign.svg'];
+        }
 
         let santized_message = html_encode(options.message);
 
