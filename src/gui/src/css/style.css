@@ -918,6 +918,31 @@ span.header-sort-icon img {
     border-radius: 0;
 }
 
+.alert-success {
+    background-color: #d4edda;
+    border-color: #00f010;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    border-color: #006cf0;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    border-color: #f0a500;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    border-color: #f02800;
+}
+
+.alert-question {
+    background-color: #d4edda;
+    border-color: #82f16c;
+}
+
 .device-phone .window[data-is_maximized="1"] {
     top: 0 !important;
 }
