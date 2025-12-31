@@ -69,8 +69,12 @@ function UIAlert(options){
         let h = '';
         // icon
         h += `<img class="window-alert-icon" src="${html_encode(options.body_icon)}">`;
-        // message
-        h += `<div class="window-alert-message">${santized_message}</div>`;
+        // message: if customUI is provided, use it, otherwise use the default message
+        if(options.customUI){
+            h += options.customUI;
+        }else{
+            h += `<div class="window-alert-message">${santized_message}</div>`;
+        }
         // buttons
         if(options.buttons && options.buttons.length > 0){
             h += `<div style="overflow:hidden; margin-top:20px;">`;
@@ -100,7 +104,8 @@ function UIAlert(options){
             draggable_body: options.draggable_body ?? true,
             allow_context_menu: false,
             show_in_taskbar: false,
-            window_class: 'window-alert',
+            // add alert-type class to the window
+            window_class: `window-alert alert-${options.type || 'warning'}`,
             dominant: true,
             body_content: h,
             width: 350,
