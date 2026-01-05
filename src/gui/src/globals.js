@@ -103,7 +103,14 @@ if (window.user_preferences === null) {
 }
 
 window.window_stack = []
+//sets toolbar height for desktop mode
 window.toolbar_height = 30;
+//new settings for auto hide toolbar feature
+window.toolbar_auto_hide = true;
+//2 seconds delay before hiding the toolbar
+window.toolbar_auto_hide_delay = 2000;
+window.toolbar_hide_timer = null;
+
 window.default_taskbar_height = 50;
 window.taskbar_height = window.default_taskbar_height;
 window.upload_progress_hide_delay = 500;

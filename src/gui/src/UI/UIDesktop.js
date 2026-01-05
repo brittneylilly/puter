@@ -1158,6 +1158,50 @@ async function UIDesktop(options){
 
     globalThis.services.emit('gui:ready');
 
+    // Toolbar auto-hide functionality
+    function initToolbarAutoHide() {
+        const toolbar = document.querySelector('.toolbar');
+        
+        function hideToolbar() {
+            if (window.toolbar_auto_hide) {
+                toolbar.classList.add('toolbar-hidden');
+            }
+        }
+        
+        function showToolbar() {
+            toolbar.classList.remove('toolbar-hidden');
+            resetHideTimer();
+        }
+        
+        function resetHideTimer() {
+            const delay = window.toolbar_hide_delay || 2000;
+            if (window.toolbar_hide_timer) {
+                clearTimeout(window.toolbar_hide_timer);
+            }
+            window.toolbar_hide_timer = setTimeout(hideToolbar, delay);
+        }
+
+        // Show toolbar when mouse moves near top of screen
+        document.addEventListener('mousemove', function(e) {
+            const isNearTop = e.clientY <= 50;
+            const isHidden = toolbar.classList.contains('toolbar-hidden');
+            
+            if (isNearTop) {
+                // Mouse is near top - show toolbar and reset timer
+                if (isHidden) {
+                    toolbar.classList.remove('toolbar-hidden');
+                }
+                resetHideTimer();
+            }
+        });
+            
+        // Start the initial timer
+        resetHideTimer();
+    }
+
+    // Initialize toolbar auto-hide
+    initToolbarAutoHide();
+
     //--------------------------------------------------------------------------------------
     // Determine if an app was launched from URL
     // i.e. https://puter.com/app/<app_name>
